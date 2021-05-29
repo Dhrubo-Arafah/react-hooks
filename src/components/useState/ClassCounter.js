@@ -4,15 +4,15 @@ export class ClassCounter extends Component {
  constructor(props) {
   super(props);
   this.state = {
-   count:0
+   count: 0
   }
  }
 
  incrementCount = () => {
   this.setState({
-count:this.state.count+1
+   count: this.state.count + 1
   })
-}
+ }
 
  render() {
   return (
@@ -21,7 +21,7 @@ count:this.state.count+1
     <h1>{this.state.count}</h1>
     <button onClick={this.incrementCount}>
      Click To make {this.state.count + 1}
-     </button>
+    </button>
    </div>
   )
  }
