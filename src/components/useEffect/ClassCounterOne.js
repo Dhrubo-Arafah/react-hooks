@@ -4,7 +4,8 @@ export class ClassCounterOne extends Component {
  constructor(props) {
   super(props)
   this.state = {
-   count:0
+   count: 0,
+   msg:''
   }
  }
 
@@ -14,8 +15,10 @@ export class ClassCounterOne extends Component {
  }
  
  componentDidUpdate(prevProps, prevState) {
-  console.log("I'm componentDidUpdate()")
-  document.title = `Clicked ${this.state.count} times`
+  if (prevState.count !== this.state.count) {
+   console.log("I'm componentDidUpdate()")
+   document.title = `Clicked ${this.state.count} times`
+  }
  }
 
  CountHandler = () => {
@@ -28,6 +31,12 @@ export class ClassCounterOne extends Component {
   return (
    <div>
     <p>Using Class Component</p>
+    <input type="text"
+     value={this.state.name}
+     onChange={(e) => {
+     this.setState({msg:e.target.value})
+     }} />
+    
     <button onClick={this.CountHandler}>
      Clicked :{this.state.count} times
      </button>
